@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --cor1: #8E0124;
+    --cor2: #FEFEFE;
+    --cor3:#37CA58;
+    --cor4: #010522;
+}
+
+body{
+    height: 100vh;
+
+    background-image: url("../assets/back.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* HEADER */
+header.loginHeader{
+    padding: 2vh 2vh 0 2vh;
+    background-color: #010522;
+    margin-bottom: 30px;
+    box-shadow: 100px 0px 19px black;
+}
+
+header.loginHeader h2::after{
+    display: block;
+    margin: auto;
+    content: " ";
+    height: 10px;
+    border-radius: 20px 20px 0px 0px;
+    background: #8E0124;
+}
+
+header.loginHeader h1, h2 {
+    text-align: center;
+}
+
+header.loginHeader h1{
+    font-size: 40px;
+    font-weight: bolder;
+    color: #8E0124;
+    text-shadow: 2px 2px 1px black
+}
+
+header.loginHeader h2{
+    font-size: 25px;
+    font-weight: normal;
+    color: #FEFEFE;
+}
+
+/* MAIN */
+main.loginBody {
+    margin: auto;
+    width: 40vw;
+    height: 50vh;
+    padding: 4vh;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px black;
+    background-color: #010522;
+    border: 2px solid white;
+    color: #FEFEFE
+}
+
+main form{
+    height: 100%;
+    width: 100%;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.inputCaixa{
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.inputCaixa input{
+    width: 100%;
+    border: 2px solid #8E0124;
+    padding: 2px;
+    font-size: 20px;
+}
+
+
+main label{
+    display: block;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttonCaixa{
+    flex-basis: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.buttonCaixa button {
+    width: 90%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #8E0124;
+    color: white;
+    font-weight: bold;
+}
+
+.buttonCaixa button:hover{
+    font-weight: bolder;
+    color: black;
+    background-color: #37CA58;
+}
+
