@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <div class="dashboard_sidebar">
+        <div class="dashboard_sidebar" id="dashboard_sidebar">
             <div class="dashboard_sidebar_logo">
                 <img src="assets/icon.jpeg" alt="">
                 <h1>GemZ</h1>
@@ -21,22 +21,23 @@
             <hr>
             <div class="dashboard_sidebar_menu">
                 <ul class="dashboard_sidebar_menulist">
-                    <li class="teste"><a href=""><i class="fa fa-dashboard"></i> DashBoard</a></li>
-                    <li class="teste"><a href=""><i class="fa fa-dashboard"></i> DashBoard</a></li>
-                    <li class="teste"><a href=""><i class="fa fa-dashboard"></i> DashBoard</a></li>
-                    <li class="teste"><a href=""><i class="fa fa-dashboard"></i> DashBoard</a></li>
-                    <li class="teste"><a href=""><i class="fa fa-dashboard"></i> DashBoard</a></li>
+                    <li class="menuActive">
+                        <a href=""><i class="fa fa-dashboard menuIcons"></i> DashBoard</a>
+                    </li>
+                    <li class="menuActive">
+                        <a href=""><i class="fa fa-dashboard menuIcons"></i> DashBoard</a>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <div class="dashboard_content">
-            <div class="dashboard_content_top">
-                <a href=""><i class="fa fa-navicon"></i></a>
-                <a href=""><i class="fa fa-power-off"></i> Sair</a>
+        <div class="dashboard_content_conteiner" id="dashboard_content_conteiner">
+            <div class="dashboard_topNav">
+                <i class="fa fa-navicon" id="toggleBtn"></i>
+                <i class="fa fa-power-off" id="logoutBtn"> Sair</i>
             </div>
-            <div class="dashboard_content_bottom">
-                <div class="dashboard_content_bottom_main">
+            <div class="dashboard_content">
+                <div class="dashboard_content_main">
 
                 </div>
             </div>
@@ -44,4 +45,27 @@
         </div>
     </main>
 </body>
+
+<script>
+    var sideBarIsOpen = true;
+
+    
+    toggleBtn.addEventListener( 'click', (event) => {
+
+        if(sideBarIsOpen){
+            dashboard_sidebar.style.display = 'none';
+            dashboard_content_conteiner.style.flexBasis = '100%';
+            sideBarIsOpen = false;
+        }
+        else{
+            dashboard_sidebar.style.display = 'inline-block';
+            dashboard_content_conteiner.style.flexBasis = '85%';
+            sideBarIsOpen = true;
+        }
+
+
+
+    })
+</script>
+
 </html>
