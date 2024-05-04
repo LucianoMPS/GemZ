@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/Dashboardstyle copy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <main>
         <div class="dashboard_sidebar" id="dashboard_sidebar">
@@ -47,25 +49,24 @@
 </body>
 
 <script>
-    var sideBarIsOpen = true;
-
-    
-    toggleBtn.addEventListener( 'click', (event) => {
-
-        if(sideBarIsOpen){
-            dashboard_sidebar.style.display = 'none';
-            dashboard_content_conteiner.style.flexBasis = '100%';
-            sideBarIsOpen = false;
-        }
-        else{
-            dashboard_sidebar.style.display = 'inline-block';
-            dashboard_content_conteiner.style.flexBasis = '85%';
-            sideBarIsOpen = true;
-        }
+var sideBarIsOpen = true;
 
 
+toggleBtn.addEventListener('click', (event) => {
 
-    })
+    if (sideBarIsOpen) {
+        dashboard_sidebar.style.display = 'none';
+        dashboard_content_conteiner.style.flexBasis = '100%';
+        sideBarIsOpen = false;
+    } else {
+        dashboard_sidebar.style.display = 'inline-block';
+        dashboard_content_conteiner.style.flexBasis = '85%';
+        sideBarIsOpen = true;
+    }
+
+
+
+})
 </script>
 
 </html>
