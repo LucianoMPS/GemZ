@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    //if (isset($_SESSION['user'])) header('location: login.php');
+    $user = ($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +23,7 @@
             </div>
             <div class="dashboard_sidebar_user">
                 <img src="assets/user.png" alt="">
-                <p>Seu Zé</p>
+                <p><span><?= $user ['primeiro_nome'].'  '.$user['ultimo_nome']?></span> </p>
             </div>
             <hr>
             <div class="dashboard_sidebar_menu">
@@ -36,7 +41,8 @@
         <div class="dashboard_content_conteiner" id="dashboard_content_conteiner">
             <div class="dashboard_topNav">
                 <i class="fa fa-navicon" id="toggleBtn"></i>
-                <i class="fa fa-power-off" id="logoutBtn"> Sair</i>
+                <a href="database /sair.ph" id="logoutBtn"> <i class="fa fa-power-off"></i> Sair
+                </a>
             </div>
             <div class="dashboard_content">
                 <div class="dashboard_content_main">

@@ -1,4 +1,7 @@
 <?php
+// inicia a seção
+session_start();
+//if (isset($_SESSION['user'])) header('location: dashboard.php');
 $error_message = '';
 require_once('database/conexao.php');
 
@@ -6,10 +9,18 @@ if ($_POST) {
     $user = $_POST['user'];
     $password = $_POST['pass'];
 
-    $query = 'SELECT * FROM usuarios WHERE usuarios.email="' .$user. '" AND usuarios.senha="' .$password. '"';
+    $query = 'SELECT * FROM usuarios WHERE usuarios.email="' .$user. '" AND usuarios.senha="' .$password. '"LIMIT 1';
     $stmt = $conn->prepare($query);
-    $result = $stmt->execute();
-    die;
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $user = $stmt->fetchAll()[0];
+        $_SESSION['user'] = $user;
+        header('Location: dashboard.php');
+    }else{
+        $error_message = 'Por favor escreva o seu nome e/ou senha correto';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +40,8 @@ if ($_POST) {
         <?php
         if (!empty($error_message)) { ?>
         <div id="errorMessage">
-            <p>Erro:<?= $error_message ?></p>
+            <Strong>Erro:</Strong>
+            </p><?= $error_message ?> </Strong></p>
         </div>
         <?php } ?>
         <h1>GemZ</h1>
