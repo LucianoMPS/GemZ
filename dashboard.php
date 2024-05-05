@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    //if (isset($_SESSION['user'])) header('location: login.php');
+    if (!isset($_SESSION['user'])) header('location: login.php');
+    
     $user = ($_SESSION['user']);
 ?>
 <!DOCTYPE html>
@@ -40,9 +41,8 @@
 
         <div class="dashboard_content_conteiner" id="dashboard_content_conteiner">
             <div class="dashboard_topNav">
-                <i class="fa fa-navicon" id="toggleBtn"></i>
-                <a href="database /sair.ph" id="logoutBtn"> <i class="fa fa-power-off"></i> Sair
-                </a>
+                <a href="" id="toggleBtn"><i class="fa fa-navicon"></i></a>
+                <a href="database/sair.php" id="logoutBtn"> <i class="fa fa-power-off"></i> Sair</a>
             </div>
             <div class="dashboard_content">
                 <div class="dashboard_content_main">

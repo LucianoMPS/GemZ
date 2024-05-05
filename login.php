@@ -1,7 +1,7 @@
 <?php
 // inicia a seção
 session_start();
-//if (isset($_SESSION['user'])) header('location: dashboard.php');
+if (isset($_SESSION['user'])) header('location: dashboard.php');
 $error_message = '';
 require_once('database/conexao.php');
 
@@ -19,7 +19,7 @@ if ($_POST) {
         $_SESSION['user'] = $user;
         header('Location: dashboard.php');
     }else{
-        $error_message = 'Por favor escreva o seu nome e/ou senha correto';
+        $error_message = 'Por favor escreva o seu nome e/ou senha correto(s)';
     }
 }
 ?>
