@@ -19,7 +19,7 @@ if ($_POST) {
         $_SESSION['user'] = $user;
         header('Location: dashboard.php');
     }else{
-        $error_message = 'Por favor escreva o seu nome e/ou senha correto(s)';
+        $error_message = 'Verifique se seu nome e/ou senha estão correto(s)';
     }
 }
 ?>
@@ -37,18 +37,24 @@ if ($_POST) {
 
 <body>
     <header class="loginHeader">
-        <?php
-        if (!empty($error_message)) { ?>
-        <div id="errorMessage">
-            <Strong>Erro:</Strong>
-            </p><?= $error_message ?> </Strong></p>
-        </div>
-        <?php } ?>
         <h1>GemZ</h1>
         <h2>Gestão de Estoque do Mercadinho do Seu Zé</h2>
     </header>
     <main class="loginBody">
         <form action="login.php" method="POST">
+
+        <!-- imprime a mensagem de erro -->
+        <?php
+        if (!empty($error_message)) 
+        { 
+        ?>
+            <div id="error">
+                <Strong>Erro:</Strong>
+                </p><?= $error_message ?></p>
+            </div>
+            <?php } 
+        ?>
+
             <div class="inputCaixa">
                 <label for="user">Usuário</label>
                 <input type="text" name="user" placeholder="email">
@@ -60,7 +66,6 @@ if ($_POST) {
                 <button type="submit">Realizar Login</button>
             </div>
         </form>
-
     </main>
 </body>
 
