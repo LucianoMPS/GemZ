@@ -9,7 +9,7 @@ if ($_POST) {
     $user = $_POST['user'];
     $password = $_POST['pass'];
 
-    $query = 'SELECT * FROM usuarios WHERE usuarios.email="' .$user. '" AND usuarios.senha="' .$password. '"LIMIT 1';
+    $query = 'SELECT * FROM users WHERE users.email="' .$user. '" AND users.password="' .$password. '"LIMIT 1';
     $stmt = $conn->prepare($query);
     $stmt->execute();
 
@@ -43,8 +43,8 @@ if ($_POST) {
     <main class="loginBody">
         <form action="login.php" method="POST">
 
-        <!-- imprime a mensagem de erro -->
-        <?php
+            <!-- imprime a mensagem de erro -->
+            <?php
         if (!empty($error_message)) 
         { 
         ?>

@@ -5,7 +5,7 @@
     </div>
     <div class="dashboard_sidebar_user">
         <img src="assets/user.png" alt="foto do usuario">
-        <p><span><?= $user ['primeiro_nome']?></span> </p>
+        <p><span><?= $user ['first_name']?></span> </p>
     </div>
     <hr>
     <div class="dashboard_sidebar_menu">

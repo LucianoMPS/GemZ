@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (!isset($_SESSION['user'])) header('location: login.php');
-    
+    $_SESSION['table'] = 'users';
     $user = ($_SESSION['user']);
 ?>
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
 
             <div class="dashboard_content">
                 <div class="dashboard_content_main">
-                    <form action="database/user-add.php" method="POST">
+                    <form action="database/add.php" method="POST">
                         <div class="buttonCaixa">
                             <div class="label">
                                 <label for="first_name">Primeiro Nome</label>
@@ -45,13 +45,22 @@
                                 <input type="password" name="password" id="password" class="appFormInput">
                             </div class="label">
                             <div id="buttons">
-                                <input type="hidden" name="table" value="users">
                                 <button type="submit"><i class="fa fa-plus"></i> Adcionar</button>
                                 <button type="reset">Limpar</button>
                             </div>
                         </div>
                     </form>
-
+                    <?php if (isset($_SESSION['response'])) {
+                        $response_massage = $_SESSION['response']['message'];
+                        $is_sucess = $_SESSION['response']['sucess'];
+                    ?>
+                    <div class="responseMessage">
+                        <p
+                            class="responseMessage<?= $is_sucess ? 'responseMessage__sucess' : 'responseMessage__error' ?>">
+                            <?= $response_massage  ?>
+                        </p>
+                    </div>
+                    <?php unset($_SESSION['response']); }?>
                 </div>
             </div>
 
@@ -59,6 +68,7 @@
     </main>
 </body>
 
-<script src="scripts/sidebarhiden.js"></script>
+<script src=" scripts/sidebarhiden.js">
+</script>
 
 </html>
