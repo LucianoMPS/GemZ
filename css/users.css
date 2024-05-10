@@ -53,3 +53,18 @@
     background-color: #37CA58;
 }
 
+p.responseMessage{
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+p.responseMessage__sucess{
+    background-color: #37CA58;
+}
+
+p.responseMessage__error{
+    background-color: #772828;
+    color: white;
+}

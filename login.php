@@ -6,21 +6,45 @@ $error_message = '';
 require_once('database/conexao.php');
 
 if ($_POST) {
-    $user = $_POST['user'];
-    $password = $_POST['pass'];
+    $user = $_POST['username'];
+    $password = $_POST['password'];
 
-    $query = 'SELECT * FROM users WHERE users.email="' .$user. '" AND users.password="' .$password. '"LIMIT 1';
-    $stmt = $conn->prepare($query);
+    // $query = 'SELECT * FROM users WHERE users.email="' .$user. '" AND users.password="' .$password. '"LIMIT 1';
+    // $stmt = $conn->prepare($query);
+    // $stmt->execute();
+
+    // if ($stmt->rowCount() > 0) {
+    //     $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    //     $user = $stmt->fetchAll()[0];
+    //     $_SESSION['user'] = $user;
+    //     header('Location: dashboard.php');
+    // }else{
+    //     $error_message = 'Verifique se seu nome e/ou senha estão correto(s)';
+    // }
+
+    $stmt = $conn->prepare("SELECT * FROM users");
     $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-    if ($stmt->rowCount() > 0) {
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $user = $stmt->fetchAll()[0];
-        $_SESSION['user'] = $user;
-        header('Location: dashboard.php');
-    }else{
-        $error_message = 'Verifique se seu nome e/ou senha estão correto(s)';
+    $users = $stmt->fetchAll();
+    
+    $user_exist = false;
+    foreach($users as $user){
+        $upass = $user['password'];
+
+        if(password_verify($password, $upass)){
+            $user_exist = true;
+            $_SESSION['user'] = $user;
+            break;
+        }
+        
     }
+
+    var_dump($upass);
+    var_dump($cripto);
+
+    if($user_exist) header('Location: dashboard.php');
+    else $error_message = 'Verifique se seu nome e/ou senha estão correto(s)';
 }
 ?>
 <!DOCTYPE html>
@@ -57,10 +81,10 @@ if ($_POST) {
 
             <div class="inputCaixa">
                 <label for="user">Usuário</label>
-                <input type="text" name="user" placeholder="email">
+                <input type="text" name="username" placeholder="email">
                 <br>
                 <label for="pass">Senha</label>
-                <input type="password" name="pass" placeholder="senha">
+                <input type="password" name="password" placeholder="senha">
             </div>
             <div class="buttonCaixa">
                 <button type="submit">Realizar Login</button>

@@ -55,8 +55,7 @@
                         $is_sucess = $_SESSION['response']['sucess'];
                     ?>
                     <div class="responseMessage">
-                        <p
-                            class="responseMessage<?= $is_sucess ? 'responseMessage__sucess' : 'responseMessage__error' ?>">
+                        <p class="responseMessage <?= $is_sucess ? 'responseMessage__sucess' : 'responseMessage__error' ?>">
                             <?= $response_massage  ?>
                         </p>
                     </div>

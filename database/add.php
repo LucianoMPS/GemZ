@@ -8,7 +8,7 @@
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $encrypted = password_hash($password, PASSWORD_DEFAULT);
+    $encrypted = password_hash($password, PASSWORD_BCRYPT);
 
     try{
         $command = "INSERT INTO 
