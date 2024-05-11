@@ -39,10 +39,6 @@ if ($_POST) {
         }
         
     }
-
-    var_dump($upass);
-    var_dump($cripto);
-
     if($user_exist) header('Location: dashboard.php');
     else $error_message = 'Verifique se seu nome e/ou senha estão correto(s)';
 }

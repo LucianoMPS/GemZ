@@ -1,11 +1,112 @@
+@charset "UTF-8";
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --cor1: #8E0124;
+    --cor2: #FEFEFE;
+    --cor3: #37CA58;
+    --cor4: #010522;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* CONTEUDO */
+
+.dashboard_content_conteiner {
+    flex-basis: 85%;
+    background-color: #f4f6f9;
+}
+
+.dashboard_topNav {
+    padding: 20px;
+    background-color: white;
+}
+
+.dashboard_topNav i {
+    color: #010522;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
+.dashboard_topNav i:hover {
+    cursor: pointer;
+
+}
+
+#logoutBtn{
+    float: right;
+}
+
+.dashboard_content{
+    height: 100vh;
+    padding: 20px;
+    height: calc(100vh - 2000px);
+}
+
+.dashboard_content_main{
+    padding: 5px 5px 30px 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* definindo colunas */
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.column{
+    width: 100%;
+    padding: 0px 10px;
+    /* display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 100%; */
+}
+
+.section_header{
+    margin-top: -4px;
+    margin-left: -15px;
+    margin-bottom: 10px;  
+    padding: 5px;
+    border-left: 8px solid #010522;
+    border-bottom: 1px solid #010318;
+    color: #8E0124;
+    font-size: 20px;
+}
+
+
+.column-5{
+    width: 41.67%;
+}
+
+.column-7{
+    width: 58.33%;
+}
+
+/* conteudo */
 .buttonCaixa {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    margin: auto;
-    width: 50%;
+    
 
     border: 1px solid black;
     border-radius: 10px;
@@ -27,6 +128,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .label{
@@ -67,4 +169,27 @@ p.responseMessage__sucess{
 p.responseMessage__error{
     background-color: #772828;
     color: white;
+}
+
+
+/* RIGHT SIDE*/
+
+.users table, th, td{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.users table{
+    width: 100%;
+}
+
+.users th{
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgba(128, 128, 128, 0.137);
+}
+
+.users td{
+    font-size: 13px;
 }
